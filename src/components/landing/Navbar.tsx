@@ -19,7 +19,6 @@ export function Navbar() {
     { name: 'Solutions', href: '#solutions' },
     { name: 'About Us', href: '#about' },
     { name: 'Founder', href: '#founder' },
-    { name: 'Careers', href: '#footer' },
   ];
   const handleLinkClick = () => {
     setIsMobileMenuOpen(false);
@@ -29,13 +28,16 @@ export function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b',
         isScrolled
-          ? 'bg-white/80 dark:bg-canyon-dark/80 backdrop-blur-md py-3 border-border'
+          ? 'bg-white/90 dark:bg-canyon-dark/90 backdrop-blur-md py-3 border-border'
           : 'bg-transparent py-5 border-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div 
+            className="flex items-center gap-2 group cursor-pointer" 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
             <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
               {!logoError ? (
                 <img
@@ -45,7 +47,7 @@ export function Navbar() {
                   onError={() => setLogoError(true)}
                 />
               ) : (
-                <div className="h-8 w-8 rounded bg-canyon-cyan" />
+                <div className="h-8 w-8 rounded-lg bg-gradient-primary shadow-lg shadow-canyon-blue/20" />
               )}
             </div>
             <span className={cn(
@@ -61,14 +63,14 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-canyon-cyan transition-colors"
+                className="text-sm font-semibold text-muted-foreground hover:text-canyon-cyan transition-colors"
               >
                 {link.name}
               </a>
             ))}
             <div className="flex items-center gap-4 pl-4 border-l">
               <ThemeToggle className="relative top-0 right-0" />
-              <Button asChild className="bg-gradient-primary hover:opacity-90 text-white rounded-full px-6 shadow-md shadow-canyon-blue/10 border-none transition-all hover:scale-105">
+              <Button asChild className="bg-gradient-primary hover:opacity-90 text-white rounded-full px-6 shadow-md shadow-canyon-blue/20 border-none transition-all hover:scale-105">
                 <a href="#footer">Get Started</a>
               </Button>
             </div>
@@ -94,7 +96,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-lg font-medium text-foreground py-3 border-b border-border last:border-none hover:text-canyon-cyan transition-colors"
+                className="text-lg font-bold text-foreground py-3 border-b border-border last:border-none hover:text-canyon-cyan transition-colors"
                 onClick={handleLinkClick}
               >
                 {link.name}
