@@ -18,6 +18,7 @@ export function Navbar() {
     { name: 'Services', href: '#services' },
     { name: 'Solutions', href: '#solutions' },
     { name: 'About Us', href: '#about' },
+    { name: 'Founder', href: '#founder' },
     { name: 'Careers', href: '#footer' },
   ];
   const handleLinkClick = () => {

@@ -3,6 +3,7 @@ import { Navbar } from '@/components/landing/Navbar';
 import { HeroSection } from '@/components/landing/HeroSection';
 import { ServicesSection } from '@/components/landing/ServicesSection';
 import { StatsSection } from '@/components/landing/StatsSection';
+import { MeetTheFounderSection } from '@/components/landing/MeetTheFounderSection';
 import { ValuePropSection } from '@/components/landing/ValuePropSection';
 import { CTAFooter } from '@/components/landing/CTAFooter';
 import { Toaster } from '@/components/ui/sonner';
@@ -15,6 +16,7 @@ export function HomePage() {
         <HeroSection />
         <ServicesSection />
         <ValuePropSection />
+        <MeetTheFounderSection />
         <StatsSection />
         <CTAFooter />
       </main>

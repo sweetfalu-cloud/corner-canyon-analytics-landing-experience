@@ -118,6 +118,7 @@ export function CTAFooter() {
             <h4 className="font-bold mb-6">Company</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
               <li><a href="#about" className="hover:text-canyon-cyan">About Us</a></li>
+              <li><a href="#founder" className="hover:text-canyon-cyan">Leadership</a></li>
               <li><a href="#footer" className="hover:text-canyon-cyan">Careers</a></li>
               <li><a href="#footer" className="hover:text-canyon-cyan">Press</a></li>
               <li><a href="#footer" className="hover:text-canyon-cyan">Contact</a></li>
