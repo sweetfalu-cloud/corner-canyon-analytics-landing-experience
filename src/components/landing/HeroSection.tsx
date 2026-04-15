@@ -30,9 +30,11 @@ export function HeroSection() {
               We transform complex datasets into commanding insights. Corner Canyon Analytics provides the precision and scale needed for modern decision-making.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-canyon-cyan hover:bg-canyon-cyan/90 text-canyon-dark font-bold px-8 h-14 rounded-full text-lg group">
-                Schedule Consult
-                <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <Button asChild size="lg" className="bg-canyon-cyan hover:bg-canyon-cyan/90 text-canyon-dark font-bold px-8 h-14 rounded-full text-lg group cursor-pointer">
+                <a href="#footer" className="flex items-center">
+                  Free Data Audit
+                  <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
               <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10 text-white font-semibold px-8 h-14 rounded-full text-lg">
                 <PlayCircle className="mr-2 h-5 w-5 text-canyon-cyan" />
