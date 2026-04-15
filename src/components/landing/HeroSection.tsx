@@ -30,13 +30,11 @@ export function HeroSection() {
               We transform complex datasets into commanding insights. Corner Canyon Analytics provides the precision and scale needed for modern decision-making.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 transition-all hover:scale-105 text-white font-bold px-8 h-14 rounded-full text-lg group cursor-pointer border-none shadow-lg shadow-canyon-blue/20">
-                <a href="#footer" className="flex items-center">
-                  Free Data Audit
-                  <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </a>
+              <Button size="lg" className="bg-canyon-cyan hover:bg-canyon-cyan/90 text-canyon-dark font-bold px-8 h-14 rounded-full text-lg group">
+                Schedule Consult
+                <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10 text-white font-semibold px-8 h-14 rounded-full text-lg transition-colors">
+              <Button size="lg" variant="outline" className="border-white/20 hover:bg-white/10 text-white font-semibold px-8 h-14 rounded-full text-lg">
                 <PlayCircle className="mr-2 h-5 w-5 text-canyon-cyan" />
                 See Demo
               </Button>
@@ -84,12 +82,13 @@ export function HeroSection() {
                     <div className="text-xs text-slate-400 uppercase tracking-wider mb-1">Projected ROI</div>
                     <div className="text-2xl font-bold text-canyon-cyan">+248%</div>
                   </div>
-                  <div className="h-10 w-24 rounded bg-canyon-cyan/10 border border-canyon-cyan/20 flex items-center justify-center overflow-hidden">
+                  <div className="h-10 w-24 rounded bg-canyon-cyan/10 border border-canyon-cyan/20 flex items-center justify-center">
                     <div className="w-full h-1 bg-gradient-to-r from-transparent via-canyon-cyan to-transparent animate-shimmer" />
                   </div>
                 </div>
               </div>
             </div>
+            {/* Background Glows for the mockup */}
             <div className="absolute -top-10 -right-10 w-64 h-64 bg-canyon-cyan/20 rounded-full blur-[80px]" />
             <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-canyon-blue/30 rounded-full blur-[80px]" />
           </motion.div>
