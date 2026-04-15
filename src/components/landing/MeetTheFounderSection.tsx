@@ -6,11 +6,11 @@ export function MeetTheFounderSection() {
   const credentials = [
     { icon: GraduationCap, text: "Harvard University Credentials" },
     { icon: Briefcase, text: "20+ Years Industry Experience" },
-    { icon: Award, text: "Optum & Snowflake Expert" },
+    { icon: Award, text: "Strategic Data and Automation Expert" },
     { icon: CheckCircle2, text: "Advanced SQL & Data Strategy" },
   ];
   // Memoize random positions for "floating data nodes" to prevent jitter on re-renders
-  const nodes = useMemo(() => 
+  const nodes = useMemo(() =>
     Array.from({ length: 12 }).map((_, i) => ({
       id: i,
       size: Math.random() * 6 + 4,
