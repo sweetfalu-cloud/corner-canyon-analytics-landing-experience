@@ -1,6 +1,6 @@
 # Corner Canyon Analytics
 
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/sweetfalu-cloud/corner-canyon-analytics-landing-experience)
 
 A modern full-stack analytics dashboard built with React, Tailwind CSS, shadcn/ui, and Cloudflare Workers. This project provides a production-ready starter with API routes, theming, error handling, and seamless deployment to Cloudflare.
 
@@ -83,7 +83,7 @@ bun run build
 wrangler deploy
 ```
 
-[cloudflarebutton]
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/sweetfalu-cloud/corner-canyon-analytics-landing-experience)
 
 **Configure Wrangler**: Update `wrangler.jsonc` with your Cloudflare account ID and any custom bindings (KV, D1, R2, etc.).
 
