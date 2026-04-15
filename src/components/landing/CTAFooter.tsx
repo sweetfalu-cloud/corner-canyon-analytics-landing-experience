@@ -10,6 +10,23 @@ export function CTAFooter() {
       description: "Our solutions architect will contact you within 24 hours."
     });
   };
+  const socialLinks = [
+    {
+      name: 'Twitter',
+      href: 'https://twitter.com/cornercanyon',
+      icon: Twitter,
+    },
+    {
+      name: 'LinkedIn',
+      href: 'https://www.linkedin.com/company/corner-canyon-analytics',
+      icon: Linkedin,
+    },
+    {
+      name: 'Github',
+      href: 'https://github.com/corner-canyon',
+      icon: Github,
+    },
+  ];
   return (
     <footer className="bg-canyon-dark text-white pt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,10 +69,10 @@ export function CTAFooter() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 pb-16 border-b border-white/10">
           <div className="col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              <img 
-                src="/logo.png" 
-                alt="Corner Canyon Analytics" 
-                className="h-8 w-8 object-contain" 
+              <img
+                src="/logo.png"
+                alt="Corner Canyon Analytics"
+                className="h-8 w-8 object-contain"
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = 'none';
                 }}
@@ -66,15 +83,18 @@ export function CTAFooter() {
               The premier data intelligence platform for modern enterprises. Precision. Scale. Insight.
             </p>
             <div className="flex gap-4">
-              <button className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-canyon-cyan hover:text-canyon-dark transition-all">
-                <Twitter className="w-5 h-5" />
-              </button>
-              <button className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-canyon-cyan hover:text-canyon-dark transition-all">
-                <Linkedin className="w-5 h-5" />
-              </button>
-              <button className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-canyon-cyan hover:text-canyon-dark transition-all">
-                <Github className="w-5 h-5" />
-              </button>
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Follow us on ${social.name}`}
+                  className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-canyon-cyan hover:text-canyon-dark transition-all duration-300"
+                >
+                  <social.icon className="w-5 h-5" />
+                </a>
+              ))}
             </div>
           </div>
           <div>
