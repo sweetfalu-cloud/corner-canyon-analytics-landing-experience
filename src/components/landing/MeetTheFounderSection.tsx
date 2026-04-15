@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { Award, BookOpen, Users, Quote, CheckCircle2, GraduationCap, Briefcase, Database, Activity } from 'lucide-react';
 import { Card } from '@/components/ui/card';
@@ -9,15 +9,16 @@ export function MeetTheFounderSection() {
     { icon: Award, text: "Optum & Snowflake Expert" },
     { icon: CheckCircle2, text: "Advanced SQL & Data Strategy" },
   ];
-  // Random positions for "floating data nodes"
-  const nodes = Array.from({ length: 12 }).map((_, i) => ({
-    id: i,
-    size: Math.random() * 6 + 4,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    duration: Math.random() * 5 + 3,
-    delay: Math.random() * 2,
-  }));
+  // Memoize random positions for "floating data nodes" to prevent jitter on re-renders
+  const nodes = useMemo(() => 
+    Array.from({ length: 12 }).map((_, i) => ({
+      id: i,
+      size: Math.random() * 6 + 4,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      duration: Math.random() * 5 + 3,
+      delay: Math.random() * 2,
+    })), []);
   return (
     <section id="founder" className="py-24 md:py-32 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,11 +82,11 @@ export function MeetTheFounderSection() {
               {/* Data Visualization Container */}
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 aspect-[4/5] bg-gradient-to-br from-slate-900 via-canyon-blue/40 to-canyon-cyan/20 flex flex-col items-center justify-center">
                 {/* Subtle Grid Overlay */}
-                <div 
-                  className="absolute inset-0 opacity-20 pointer-events-none" 
-                  style={{ 
+                <div
+                  className="absolute inset-0 opacity-20 pointer-events-none"
+                  style={{
                     backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-                    backgroundSize: '32px 32px' 
+                    backgroundSize: '32px 32px'
                   }}
                 />
                 {/* Animated Data Mesh */}
@@ -114,7 +115,7 @@ export function MeetTheFounderSection() {
                   ))}
                   {/* Central Glow Core */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.div 
+                    <motion.div
                       animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.8, 0.5] }}
                       transition={{ duration: 4, repeat: Infinity }}
                       className="w-48 h-48 bg-canyon-cyan/20 rounded-full blur-3xl"

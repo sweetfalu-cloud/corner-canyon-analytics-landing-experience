@@ -45,7 +45,7 @@ export function Navbar() {
                   onError={() => setLogoError(true)}
                 />
               ) : (
-                <div className="h-6 w-6 rounded bg-canyon-cyan" />
+                <div className="h-8 w-8 rounded bg-canyon-cyan" />
               )}
             </div>
             <span className={cn(
