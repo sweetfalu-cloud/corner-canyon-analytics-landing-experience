@@ -68,7 +68,7 @@ export function Navbar() {
             ))}
             <div className="flex items-center gap-4 pl-4 border-l">
               <ThemeToggle className="relative top-0 right-0" />
-              <Button asChild className="bg-canyon-blue hover:bg-canyon-blue/90 text-white rounded-full px-6">
+              <Button asChild className="bg-gradient-primary hover:opacity-90 text-white rounded-full px-6 shadow-md shadow-canyon-blue/10 border-none transition-all hover:scale-105">
                 <a href="#footer">Get Started</a>
               </Button>
             </div>
@@ -78,7 +78,7 @@ export function Navbar() {
             <ThemeToggle className="relative top-0 right-0" />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-foreground focus:outline-none transition-colors"
+              className="p-2 text-foreground focus:outline-none transition-colors hover:bg-accent rounded-md"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X /> : <Menu />}
@@ -88,7 +88,7 @@ export function Navbar() {
       </div>
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b animate-in slide-in-from-top duration-300 shadow-xl overflow-hidden">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-lg border-b animate-in slide-in-from-top duration-300 shadow-xl overflow-hidden">
           <div className="flex flex-col p-4 space-y-4">
             {navLinks.map((link) => (
               <a
@@ -100,7 +100,7 @@ export function Navbar() {
                 {link.name}
               </a>
             ))}
-            <Button asChild className="w-full bg-canyon-blue text-white py-6 text-lg rounded-xl">
+            <Button asChild className="w-full bg-gradient-primary text-white py-6 text-lg rounded-xl shadow-lg border-none">
               <a href="#footer" onClick={handleLinkClick}>Get Started</a>
             </Button>
           </div>
