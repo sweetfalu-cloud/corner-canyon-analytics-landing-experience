@@ -6,6 +6,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -19,6 +20,9 @@ export function Navbar() {
     { name: 'About Us', href: '#about' },
     { name: 'Careers', href: '#careers' },
   ];
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false);
+  };
   return (
     <nav
       className={cn(
@@ -31,16 +35,22 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 group cursor-pointer">
-            <img 
-              src="/logo.png" 
-              alt="Corner Canyon Analytics" 
-              className="h-8 w-10 object-contain transition-transform group-hover:scale-110"
-              onError={(e) => {
-                // Fallback to text color if image fails to load
-                (e.target as HTMLImageElement).style.display = 'none';
-              }}
-            />
-            <span className="text-xl font-bold tracking-tight text-foreground">
+            <div className="w-10 h-8 flex items-center justify-center flex-shrink-0">
+              {!logoError ? (
+                <img
+                  src="/logo.png"
+                  alt="Corner Canyon Analytics"
+                  className="h-full w-full object-contain transition-transform group-hover:scale-110"
+                  onError={() => setLogoError(true)}
+                />
+              ) : (
+                <div className="h-6 w-6 rounded bg-canyon-cyan animate-pulse" />
+              )}
+            </div>
+            <span className={cn(
+              "text-xl font-bold tracking-tight text-foreground transition-all",
+              logoError ? "ml-1" : "ml-0"
+            )}>
               Corner Canyon <span className="text-canyon-cyan">Analytics</span>
             </span>
           </div>
@@ -67,7 +77,8 @@ export function Navbar() {
             <ThemeToggle className="relative top-0 right-0" />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-foreground"
+              className="p-2 text-foreground focus:outline-none"
+              aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X /> : <Menu />}
             </button>
@@ -76,19 +87,19 @@ export function Navbar() {
       </div>
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b animate-in slide-in-from-top duration-300">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b animate-in slide-in-from-top duration-300 shadow-xl">
           <div className="flex flex-col p-4 space-y-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-lg font-medium text-foreground py-2 border-b border-border"
-                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-lg font-medium text-foreground py-3 border-b border-border last:border-none"
+                onClick={handleLinkClick}
               >
                 {link.name}
               </a>
             ))}
-            <Button className="w-full bg-canyon-blue text-white py-6 text-lg">
+            <Button className="w-full bg-canyon-blue text-white py-6 text-lg rounded-xl">
               Get Started
             </Button>
           </div>
