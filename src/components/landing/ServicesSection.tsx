@@ -49,6 +49,8 @@ const services = [
 export function ServicesSection() {
   return (
     <section id="services" className="py-24 md:py-32 bg-background relative">
+      {/* Anchor for Solutions navigation which points to the same technical capabilities area */}
+      <div id="solutions" className="absolute -top-20" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <h2 className="text-canyon-cyan font-semibold tracking-wide uppercase text-sm mb-3">Our Core Capabilities</h2>

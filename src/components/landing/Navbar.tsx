@@ -34,8 +34,8 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 group cursor-pointer">
-            <div className="w-10 h-8 flex items-center justify-center flex-shrink-0">
+          <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
               {!logoError ? (
                 <img
                   src="/logo.png"
@@ -77,7 +77,7 @@ export function Navbar() {
             <ThemeToggle className="relative top-0 right-0" />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-foreground focus:outline-none"
+              className="p-2 text-foreground focus:outline-none transition-colors"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X /> : <Menu />}
@@ -93,7 +93,7 @@ export function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-lg font-medium text-foreground py-3 border-b border-border last:border-none"
+                className="text-lg font-medium text-foreground py-3 border-b border-border last:border-none hover:text-canyon-cyan transition-colors"
                 onClick={handleLinkClick}
               >
                 {link.name}

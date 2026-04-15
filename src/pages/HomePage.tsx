@@ -11,10 +11,11 @@ export function HomePage() {
     <div className="min-h-screen bg-background font-sans selection:bg-canyon-cyan/30">
       <Navbar />
       <main>
+        {/* User Journey: Hero -> Services -> About/Why Us -> Stats -> CTA */}
         <HeroSection />
-        <StatsSection />
         <ServicesSection />
         <ValuePropSection />
+        <StatsSection />
         <CTAFooter />
       </main>
       <Toaster position="top-center" richColors />
