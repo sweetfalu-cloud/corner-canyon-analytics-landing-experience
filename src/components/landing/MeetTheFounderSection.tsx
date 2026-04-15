@@ -13,12 +13,12 @@ export function MeetTheFounderSection() {
     <section id="founder" className="py-24 md:py-32 bg-background overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Column: Content */}
+          {/* Left Column: Bio / Text */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-canyon-cyan/10 border border-canyon-cyan/20 text-canyon-cyan text-sm font-medium mb-6">
               Leadership & Vision
@@ -27,7 +27,7 @@ export function MeetTheFounderSection() {
               Meet the Founder: <span className="text-canyon-cyan">Falguni Dharodiya</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              With over two decades of experience at the intersection of healthcare and technology, Falguni Dharodiya founded Corner Canyon Analytics to bridge the gap between complex data infrastructure and actionable leadership strategy. 
+              With over two decades of experience at the intersection of healthcare and technology, Falguni Dharodiya founded Corner Canyon Analytics to bridge the gap between complex data infrastructure and actionable leadership strategy.
             </p>
             <div className="grid sm:grid-cols-2 gap-4 mb-10">
               {credentials.map((item, i) => (
@@ -60,37 +60,47 @@ export function MeetTheFounderSection() {
               </div>
             </Card>
           </motion.div>
-          {/* Right Column: Visual */}
+          {/* Right Column: Visual (Image Asset) */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.9, x: 40 }}
+            whileInView={{ opacity: 1, scale: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative"
           >
-            <div className="relative z-10 aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-8 border-white dark:border-slate-800">
-              <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" 
-                alt="Falguni Dharodiya - Founder of Corner Canyon Analytics"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-canyon-dark/80 via-transparent to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8">
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-12 rounded-xl bg-canyon-cyan flex items-center justify-center shadow-lg">
-                    <BookOpen className="text-white h-6 w-6" />
-                  </div>
-                  <div>
-                    <div className="text-white font-bold text-xl leading-tight">Elite Data Strategy</div>
-                    <div className="text-canyon-cyan text-sm font-medium">Harvard • Optum • Snowflake</div>
+            <div className="relative group">
+              {/* Image Container with Custom Styling */}
+              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 transition-transform duration-500 group-hover:scale-[1.01]">
+                <img
+                  src="/images/founder.jpg"
+                  alt="Falguni Dharodiya - Founder of Corner Canyon Analytics"
+                  className="w-full h-auto max-h-[600px] object-cover"
+                  onError={(e) => {
+                    // Fallback to high-quality placeholder if asset isn't available yet
+                    (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop";
+                  }}
+                />
+                {/* Subtle Overlay/Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-canyon-dark/60 via-canyon-cyan/5 to-transparent pointer-events-none" />
+                {/* Visual Label */}
+                <div className="absolute bottom-8 left-8 right-8">
+                  <div className="flex items-center gap-4">
+                    <div className="h-12 w-12 rounded-xl bg-canyon-cyan flex items-center justify-center shadow-lg">
+                      <BookOpen className="text-white h-6 w-6" />
+                    </div>
+                    <div>
+                      <div className="text-white font-bold text-xl leading-tight">Elite Data Strategy</div>
+                      <div className="text-canyon-cyan text-sm font-medium">Harvard • Optum • Snowflake</div>
+                    </div>
                   </div>
                 </div>
               </div>
+              {/* Background Decorative Glows */}
+              <div className="absolute -top-10 -right-10 w-64 h-64 bg-canyon-cyan/20 rounded-full blur-[100px] -z-10" />
+              <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-canyon-blue/30 rounded-full blur-[100px] -z-10" />
+              {/* Rotating Border Frame */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[105%] h-[105%] border-2 border-canyon-cyan/10 rounded-[2.5rem] rotate-3 -z-20 pointer-events-none" />
             </div>
-            {/* Decorative Background Elements */}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-canyon-cyan/20 rounded-full blur-[100px] -z-10" />
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-canyon-blue/30 rounded-full blur-[100px] -z-10" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full border-2 border-canyon-cyan/10 rounded-3xl rotate-3 -z-20" />
           </motion.div>
         </div>
       </div>
