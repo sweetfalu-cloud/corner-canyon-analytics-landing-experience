@@ -77,21 +77,23 @@ export function CTAFooter() {
         {/* Footer Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 pb-16 border-b border-white/10">
           <div className="col-span-2 lg:col-span-2">
-            <div 
-              className="flex items-center gap-2 mb-6 cursor-pointer group w-fit" 
+            <div
+              className="flex items-center gap-3 mb-6 cursor-pointer group w-fit"
               onClick={handleLogoClick}
             >
-              {!logoError ? (
-                <img
-                  src="/logo.png"
-                  alt="Corner Canyon Analytics"
-                  className="h-8 w-8 object-contain transition-transform group-hover:scale-110"
-                  onError={() => setLogoError(true)}
-                />
-              ) : (
-                <div className="h-6 w-6 rounded bg-canyon-cyan" />
-              )}
-              <span className="text-xl font-bold tracking-tight">Corner Canyon</span>
+              <div className="w-8 h-8 flex items-center justify-center flex-shrink-0">
+                {!logoError ? (
+                  <img
+                    src="/logo.png"
+                    alt="Corner Canyon Analytics"
+                    className="h-full w-full object-contain transition-transform group-hover:scale-110"
+                    onError={() => setLogoError(true)}
+                  />
+                ) : (
+                  <div className="h-8 w-8 rounded-lg bg-gradient-primary shadow-lg shadow-canyon-blue/20" />
+                )}
+              </div>
+              <span className="text-xl font-bold tracking-tight">Corner Canyon <span className="text-canyon-cyan">Analytics</span></span>
             </div>
             <p className="text-slate-400 max-w-xs mb-8">
               The premier data intelligence platform for modern enterprises. Precision. Scale. Insight.
@@ -104,7 +106,7 @@ export function CTAFooter() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Follow us on ${social.name}`}
-                  className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-canyon-cyan hover:text-canyon-cyan transition-all duration-300"
+                  className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 hover:border-canyon-cyan/50 hover:text-canyon-cyan transition-all duration-300"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
