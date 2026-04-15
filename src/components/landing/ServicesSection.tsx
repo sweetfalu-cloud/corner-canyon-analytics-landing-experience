@@ -25,7 +25,7 @@ const services = [
   {
     title: 'Strategic Process Automation',
     subtitle: 'Efficiency at Scale',
-    description: "Bridge the gap between your tools. Our custom V automation engines streamline workflows that off-the-shelf software can’t touch.",
+    description: "Bridge the gap between your tools. Our custom automation engines streamline workflows and eliminate manual bottlenecks that off-the-shelf software can’t touch.",
     icon: Zap,
     color: 'text-indigo-500',
     bg: 'bg-indigo-500/10',
