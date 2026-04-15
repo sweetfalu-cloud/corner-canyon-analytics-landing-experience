@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, BarChart3 } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from '@/components/ThemeToggle';
 export function Navbar() {
@@ -23,15 +23,23 @@ export function Navbar() {
     <nav
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b',
-        isScrolled 
-          ? 'bg-white/80 dark:bg-canyon-dark/80 backdrop-blur-md py-3 border-border' 
+        isScrolled
+          ? 'bg-white/80 dark:bg-canyon-dark/80 backdrop-blur-md py-3 border-border'
           : 'bg-transparent py-5 border-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2 group cursor-pointer">
-            <BarChart3 className="h-8 w-8 text-canyon-cyan transition-transform group-hover:scale-110" />
+            <img 
+              src="/logo.png" 
+              alt="Corner Canyon Analytics" 
+              className="h-8 w-10 object-contain transition-transform group-hover:scale-110"
+              onError={(e) => {
+                // Fallback to text color if image fails to load
+                (e.target as HTMLImageElement).style.display = 'none';
+              }}
+            />
             <span className="text-xl font-bold tracking-tight text-foreground">
               Corner Canyon <span className="text-canyon-cyan">Analytics</span>
             </span>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { BarChart3, Github, Twitter, Linkedin, ArrowRight } from 'lucide-react';
+import { Github, Twitter, Linkedin, ArrowRight } from 'lucide-react';
 import { toast } from 'sonner';
 export function CTAFooter() {
   const handleSubmit = (e: React.FormEvent) => {
@@ -31,8 +31,8 @@ export function CTAFooter() {
             </div>
             <div>
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
-                <Input 
-                  placeholder="Enter your work email" 
+                <Input
+                  placeholder="Enter your work email"
                   className="h-14 bg-white/10 border-white/20 text-white placeholder:text-slate-400 rounded-full px-6 focus:ring-canyon-cyan"
                   required
                   type="email"
@@ -52,7 +52,14 @@ export function CTAFooter() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 pb-16 border-b border-white/10">
           <div className="col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              <BarChart3 className="h-8 w-8 text-canyon-cyan" />
+              <img 
+                src="/logo.png" 
+                alt="Corner Canyon Analytics" 
+                className="h-8 w-8 object-contain" 
+                onError={(e) => {
+                  (e.target as HTMLImageElement).style.display = 'none';
+                }}
+              />
               <span className="text-xl font-bold tracking-tight">Corner Canyon</span>
             </div>
             <p className="text-slate-400 max-w-xs mb-8">
