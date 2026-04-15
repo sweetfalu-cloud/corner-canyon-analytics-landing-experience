@@ -44,8 +44,8 @@ const services = [
 export function ServicesSection() {
   return (
     <section id="services" className="py-24 md:py-32 bg-background relative">
-      {/* Anchor for Solutions navigation */}
-      <div id="solutions" className="absolute -top-20" />
+      {/* Anchor for Solutions navigation - Adjusted for scroll-padding-top sync */}
+      <div id="solutions" className="absolute -top-8" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.div
@@ -95,9 +95,9 @@ export function ServicesSection() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <button className="inline-flex items-center gap-2 text-sm font-bold text-foreground group-hover:text-canyon-cyan transition-all duration-300">
+                  <button className="inline-flex items-center gap-2 text-sm font-bold text-foreground group-hover:text-canyon-cyan transition-all duration-500">
                     Explore Solution
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
                   </button>
                 </CardContent>
               </Card>

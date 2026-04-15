@@ -87,8 +87,8 @@ export function Navbar() {
       </div>
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-lg border-b animate-in slide-in-from-top duration-300 shadow-xl overflow-hidden">
-          <div className="flex flex-col p-4 space-y-4">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b animate-in slide-in-from-top duration-300 shadow-xl overflow-hidden z-[60]">
+          <div className="flex flex-col p-6 space-y-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -99,7 +99,7 @@ export function Navbar() {
                 {link.name}
               </a>
             ))}
-            <Button asChild className="w-full bg-gradient-primary text-white py-6 text-lg rounded-xl shadow-lg border-none">
+            <Button asChild className="w-full bg-gradient-primary text-white py-6 text-lg rounded-xl shadow-lg shadow-canyon-blue/20 border-none">
               <a href="#footer" onClick={handleLinkClick}>Get Started</a>
             </Button>
           </div>
