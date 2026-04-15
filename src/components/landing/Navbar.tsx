@@ -18,7 +18,7 @@ export function Navbar() {
     { name: 'Services', href: '#services' },
     { name: 'Solutions', href: '#solutions' },
     { name: 'About Us', href: '#about' },
-    { name: 'Careers', href: '#careers' },
+    { name: 'Careers', href: '#footer' },
   ];
   const handleLinkClick = () => {
     setIsMobileMenuOpen(false);
@@ -44,7 +44,7 @@ export function Navbar() {
                   onError={() => setLogoError(true)}
                 />
               ) : (
-                <div className="h-6 w-6 rounded bg-canyon-cyan animate-pulse" />
+                <div className="h-6 w-6 rounded bg-canyon-cyan" />
               )}
             </div>
             <span className={cn(
@@ -67,8 +67,8 @@ export function Navbar() {
             ))}
             <div className="flex items-center gap-4 pl-4 border-l">
               <ThemeToggle className="relative top-0 right-0" />
-              <Button className="bg-canyon-blue hover:bg-canyon-blue/90 text-white rounded-full px-6">
-                Get Started
+              <Button asChild className="bg-canyon-blue hover:bg-canyon-blue/90 text-white rounded-full px-6">
+                <a href="#footer">Get Started</a>
               </Button>
             </div>
           </div>
@@ -87,7 +87,7 @@ export function Navbar() {
       </div>
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b animate-in slide-in-from-top duration-300 shadow-xl">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-b animate-in slide-in-from-top duration-300 shadow-xl overflow-hidden">
           <div className="flex flex-col p-4 space-y-4">
             {navLinks.map((link) => (
               <a
@@ -99,8 +99,8 @@ export function Navbar() {
                 {link.name}
               </a>
             ))}
-            <Button className="w-full bg-canyon-blue text-white py-6 text-lg rounded-xl">
-              Get Started
+            <Button asChild className="w-full bg-canyon-blue text-white py-6 text-lg rounded-xl">
+              <a href="#footer" onClick={handleLinkClick}>Get Started</a>
             </Button>
           </div>
         </div>

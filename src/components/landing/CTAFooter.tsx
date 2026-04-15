@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { Github, Twitter, Linkedin, ArrowRight } from 'lucide-react';
 import { toast } from 'sonner';
 export function CTAFooter() {
+  const [logoError, setLogoError] = useState(false);
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Welcome aboard!", {
@@ -28,7 +30,7 @@ export function CTAFooter() {
     },
   ];
   return (
-    <footer className="bg-canyon-dark text-white pt-24">
+    <footer id="footer" className="bg-canyon-dark text-white pt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* CTA Section */}
         <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-canyon-blue to-canyon-dark border border-white/10 p-12 md:p-20 mb-24">
@@ -48,12 +50,16 @@ export function CTAFooter() {
             </div>
             <div>
               <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
-                <Input
-                  placeholder="Enter your work email"
-                  className="h-14 bg-white/10 border-white/20 text-white placeholder:text-slate-400 rounded-full px-6 focus:ring-canyon-cyan"
-                  required
-                  type="email"
-                />
+                <div className="flex-1">
+                  <Label htmlFor="footer-email" className="sr-only">Work Email</Label>
+                  <Input
+                    id="footer-email"
+                    placeholder="Enter your work email"
+                    className="h-14 bg-white/10 border-white/20 text-white placeholder:text-slate-400 rounded-full px-6 focus:ring-canyon-cyan"
+                    required
+                    type="email"
+                  />
+                </div>
                 <Button type="submit" className="h-14 bg-canyon-cyan hover:bg-canyon-cyan/90 text-canyon-dark font-bold px-8 rounded-full group">
                   Get Started
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -69,14 +75,16 @@ export function CTAFooter() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 pb-16 border-b border-white/10">
           <div className="col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              <img
-                src="/logo.png"
-                alt="Corner Canyon Analytics"
-                className="h-8 w-8 object-contain"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }}
-              />
+              {!logoError ? (
+                <img
+                  src="/logo.png"
+                  alt="Corner Canyon Analytics"
+                  className="h-8 w-8 object-contain"
+                  onError={() => setLogoError(true)}
+                />
+              ) : (
+                <div className="h-6 w-6 rounded bg-canyon-cyan" />
+              )}
               <span className="text-xl font-bold tracking-tight">Corner Canyon</span>
             </div>
             <p className="text-slate-400 max-w-xs mb-8">
@@ -100,19 +108,19 @@ export function CTAFooter() {
           <div>
             <h4 className="font-bold mb-6">Platform</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li><a href="#" className="hover:text-canyon-cyan">Features</a></li>
-              <li><a href="#" className="hover:text-canyon-cyan">Analytics</a></li>
-              <li><a href="#" className="hover:text-canyon-cyan">Integrations</a></li>
-              <li><a href="#" className="hover:text-canyon-cyan">Cloud Storage</a></li>
+              <li><a href="#services" className="hover:text-canyon-cyan">Features</a></li>
+              <li><a href="#services" className="hover:text-canyon-cyan">Analytics</a></li>
+              <li><a href="#solutions" className="hover:text-canyon-cyan">Integrations</a></li>
+              <li><a href="#services" className="hover:text-canyon-cyan">Cloud Storage</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-bold mb-6">Company</h4>
             <ul className="space-y-4 text-slate-400 text-sm">
-              <li><a href="#" className="hover:text-canyon-cyan">About Us</a></li>
-              <li><a href="#" className="hover:text-canyon-cyan">Careers</a></li>
-              <li><a href="#" className="hover:text-canyon-cyan">Press</a></li>
-              <li><a href="#" className="hover:text-canyon-cyan">Contact</a></li>
+              <li><a href="#about" className="hover:text-canyon-cyan">About Us</a></li>
+              <li><a href="#footer" className="hover:text-canyon-cyan">Careers</a></li>
+              <li><a href="#footer" className="hover:text-canyon-cyan">Press</a></li>
+              <li><a href="#footer" className="hover:text-canyon-cyan">Contact</a></li>
             </ul>
           </div>
           <div>

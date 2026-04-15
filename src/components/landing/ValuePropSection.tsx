@@ -10,7 +10,7 @@ export function ValuePropSection() {
     '24/7 dedicated engineering support teams',
   ];
   return (
-    <section id="solutions" className="py-24 md:py-32 bg-slate-50 dark:bg-slate-900/30">
+    <section id="about" className="py-24 md:py-32 bg-slate-50 dark:bg-slate-900/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
@@ -23,7 +23,7 @@ export function ValuePropSection() {
             </p>
             <ul className="space-y-4">
               {benefits.map((benefit, i) => (
-                <motion.li 
+                <motion.li
                   key={i}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -37,14 +37,14 @@ export function ValuePropSection() {
               ))}
             </ul>
           </div>
-          <div className="relative">
-            <div className="relative aspect-square max-w-[500px] mx-auto">
+          <div className="relative center">
+            <div className="relative aspect-square w-full max-w-[500px]">
               {/* Abstract Data Visualization */}
               <div className="absolute inset-0 bg-gradient-to-br from-canyon-blue/10 to-canyon-cyan/10 rounded-full animate-pulse" />
-              <motion.div 
+              <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-4 border-2 border-dashed border-canyon-cyan/30 rounded-full" 
+                className="absolute inset-4 border-2 border-dashed border-canyon-cyan/30 rounded-full"
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="grid grid-cols-2 gap-4 w-3/4">
@@ -52,13 +52,13 @@ export function ValuePropSection() {
                     <motion.div
                       key={item}
                       whileHover={{ scale: 1.05 }}
-                      className="p-6 rounded-2xl bg-white dark:bg-canyon-dark border border-border shadow-xl relative overflow-hidden group"
+                      className="p-4 md:p-6 rounded-2xl bg-white dark:bg-canyon-dark border border-border shadow-xl relative overflow-hidden group"
                     >
                       <div className="h-2 w-12 bg-canyon-cyan/20 rounded mb-4 overflow-hidden">
                         <div className="h-full bg-canyon-cyan w-1/2 animate-shimmer" />
                       </div>
-                      <div className="text-2xl font-bold mb-1">99.9%</div>
-                      <div className="text-xs text-muted-foreground uppercase tracking-wider">Metric {item}</div>
+                      <div className="text-xl md:text-2xl font-bold mb-1">99.9%</div>
+                      <div className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wider">Metric {item}</div>
                       <div className="absolute top-0 right-0 p-2 opacity-10 group-hover:opacity-100 transition-opacity">
                         <CheckCircle2 className="w-4 h-4 text-canyon-cyan" />
                       </div>
