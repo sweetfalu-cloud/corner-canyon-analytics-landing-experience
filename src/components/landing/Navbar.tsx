@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { motion, AnimatePresence } from 'framer-motion';
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -34,7 +35,9 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <div
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             className="flex items-center gap-3 group cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
@@ -43,7 +46,7 @@ export function Navbar() {
                 <img
                   src="/logo.png"
                   alt="Corner Canyon Analytics"
-                  className="h-full w-full object-contain transition-transform group-hover:scale-110"
+                  className="h-full w-full object-contain transition-transform group-hover:rotate-6"
                   onError={() => setLogoError(true)}
                 />
               ) : (
@@ -53,21 +56,22 @@ export function Navbar() {
             <span className="text-xl font-bold tracking-tight text-foreground">
               Corner Canyon <span className="text-canyon-cyan">Analytics</span>
             </span>
-          </div>
+          </motion.div>
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-semibold text-muted-foreground hover:text-canyon-cyan transition-colors"
+                className="text-sm font-semibold text-muted-foreground hover:text-canyon-cyan transition-colors relative group"
               >
                 {link.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-canyon-cyan transition-all group-hover:w-full" />
               </a>
             ))}
             <div className="flex items-center gap-4 pl-4 border-l">
               <ThemeToggle className="relative top-0 right-0" />
-              <Button asChild className="bg-gradient-primary hover:opacity-90 text-white rounded-full px-6 shadow-md shadow-canyon-blue/20 border-none transition-all hover:scale-105">
+              <Button asChild className="bg-gradient-primary hover:opacity-90 text-white rounded-full px-6 shadow-md shadow-canyon-blue/20 border-none transition-all hover:scale-105 active:scale-95">
                 <a href="#footer">Get Started</a>
               </Button>
             </div>
@@ -86,25 +90,42 @@ export function Navbar() {
         </div>
       </div>
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b animate-in slide-in-from-top duration-300 shadow-xl overflow-hidden z-[60]">
-          <div className="flex flex-col p-6 space-y-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-lg font-bold text-foreground py-3 border-b border-border last:border-none hover:text-canyon-cyan transition-colors"
-                onClick={handleLinkClick}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b shadow-xl overflow-hidden z-[60]"
+          >
+            <div className="flex flex-col p-6 space-y-4">
+              {navLinks.map((link, idx) => (
+                <motion.a
+                  key={link.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                  href={link.href}
+                  className="text-lg font-bold text-foreground py-3 border-b border-border last:border-none hover:text-canyon-cyan transition-colors"
+                  onClick={handleLinkClick}
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
               >
-                {link.name}
-              </a>
-            ))}
-            <Button asChild className="w-full bg-gradient-primary text-white py-6 text-lg rounded-xl shadow-lg shadow-canyon-blue/20 border-none">
-              <a href="#footer" onClick={handleLinkClick}>Get Started</a>
-            </Button>
-          </div>
-        </div>
-      )}
+                <Button asChild className="w-full bg-gradient-primary text-white py-6 text-lg rounded-xl shadow-lg shadow-canyon-blue/20 border-none">
+                  <a href="#footer" onClick={handleLinkClick}>Get Started</a>
+                </Button>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

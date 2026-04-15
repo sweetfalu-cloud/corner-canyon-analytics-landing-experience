@@ -36,7 +36,7 @@ export function CTAFooter() {
     <footer id="footer" className="bg-canyon-dark text-white pt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* CTA Section */}
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-canyon-blue to-canyon-dark border border-white/10 p-12 md:p-20 mb-24">
+        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-canyon-blue/80 to-canyon-dark border border-white/10 p-12 md:p-20 mb-24 shadow-2xl">
           <div className="absolute top-0 right-0 w-64 h-64 bg-canyon-cyan/20 rounded-full blur-[100px]" />
           <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -58,12 +58,12 @@ export function CTAFooter() {
                   <Input
                     id="footer-email"
                     placeholder="Enter your work email"
-                    className="h-14 bg-white/10 border-white/20 text-white placeholder:text-slate-400 rounded-full px-6 focus:ring-canyon-cyan focus:border-canyon-cyan outline-none transition-all"
+                    className="h-14 bg-white/10 border-white/20 text-white placeholder:text-slate-400 rounded-full px-6 focus-visible:ring-canyon-cyan focus-visible:border-canyon-cyan focus:ring-canyon-cyan focus:border-canyon-cyan outline-none transition-all ring-offset-canyon-dark"
                     required
                     type="email"
                   />
                 </div>
-                <Button type="submit" className="h-14 bg-gradient-primary hover:opacity-90 text-white font-bold px-8 rounded-full group border-none shadow-lg shadow-canyon-blue/20 transition-all hover:scale-105">
+                <Button type="submit" className="h-14 bg-gradient-primary hover:opacity-90 text-white font-bold px-8 rounded-full group border-none shadow-lg shadow-canyon-blue/20 transition-all hover:scale-105 active:scale-95">
                   Get Started
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
