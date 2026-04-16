@@ -4,7 +4,7 @@
  */
  {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "corner-canyon-analyt-lbckehvytnabxfdwf4gos",
+	"name": "cornercanyonanalytics",
 	"main": "worker/index.ts",
 	"compatibility_date": "2025-04-24",
 	"assets": {
